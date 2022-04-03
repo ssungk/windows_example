@@ -3,7 +3,7 @@ ssungk's winsows example repository
 
 
 ## Environment
-OS: Windows 10
+OS: Windows 10  
 Compiler : visual studio 2017
 
 ## Build & Test
