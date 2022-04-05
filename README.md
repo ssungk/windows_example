@@ -1,5 +1,6 @@
 # Windows Example
-ssungk's winsows example repository
+ssungk's winsows example repository  
+개인적으로 사용하거나 공부한 windows용 코드 기록용 git repo
 
 
 ## Development Environment
@@ -18,3 +19,8 @@ Tool에 포함된 YUV Player를 통해 RGB, YUV raw데이터를 확인해볼수�
 * 윈도우에서 제공하는 Desktop Duplication API를 이용한 화면캡처 및 bgr포맷의 RAW데이터로 저장하는 예제
 * 이전에 제공하던 GDI를 이용한 화면 캡처 방식보다 발전된 방식
 * 화면캡처를 위한 AP이때 때문에 GPU메모리에서 접근이 가능해 속도가 매우빠르고 GPU가속 인코딩과 조합하면 효율이 좋음
+
+## 02 Media foundation Video Processor
+* 윈도우에서 제공하는 Media foundation API를 이용한 bgr to nv12(yuv)예제
+* SW, HW둘다 지원하지만 HW의 경우 DirectX를 사용해야되서 SW예제로 구현
+* 1번 예제와 달리 다중모니터를 고려하지 않고 주모니터1개만 동작
