@@ -4,7 +4,7 @@
 
 int main()
 {
-  // ÁÖ¸ð´ÏÅÍ ÇØ»óµµ(º»¿¹Á¦´Â Ã¹¹øÂ° ¿¹Á¦¿Í ´Þ¸® ´ÙÁß ¸ð´ÏÅÍÃ³¸® ¾ÈÇÔ)
+  // ì£¼ëª¨ë‹ˆí„° í•´ìƒë„(ë³¸ì˜ˆì œëŠ” ì²«ë²ˆì§¸ ì˜ˆì œì™€ ë‹¬ë¦¬ ë‹¤ì¤‘ ëª¨ë‹ˆí„°ì²˜ë¦¬ ì•ˆí•¨)
   int width = GetSystemMetrics(SM_CXSCREEN);
   int height = GetSystemMetrics(SM_CYSCREEN);
 
