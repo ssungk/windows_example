@@ -40,7 +40,6 @@ void DesktopDuplication::Capture(int index)
     CComPtr<IDXGIResource> resource;
 
     // Release if already captured frames exist
-    // 
     HRESULT hr = dup->ReleaseFrame();
     if (FAILED(hr))
     {
