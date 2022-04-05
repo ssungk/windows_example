@@ -197,8 +197,7 @@ void DesktopDuplication::init()
 
     textures_.push_back(texture);
    
-    std::string index = std::to_string(textures_.size() - 1);
-    std::string path = "../screen" + index + ".bgr";
+    std::string path = "../screen" + std::to_string(textures_.size() - 1) + ".bgr";
     
     FILE* f = NULL;
     fopen_s(&f, path.c_str(), "wb");
@@ -206,6 +205,4 @@ void DesktopDuplication::init()
 
     output = nullptr;
   }
-
-
 }
