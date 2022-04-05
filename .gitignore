@@ -39,6 +39,7 @@ x64
 *.bgr
 *.rgb
 *.yuv
+*.nv12
 
 # Temp
 .vs
