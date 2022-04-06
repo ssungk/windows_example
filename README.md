@@ -25,3 +25,8 @@ Tool에 포함된 YUV Player를 통해 RGB, YUV raw데이터를 확인해볼수�
 * SW, HW둘다 지원하지만 HW의 경우 DirectX를 사용해야되서 SW예제로 구현
 * 1번 예제와 달리 다중모니터를 고려하지 않고 주모니터1개만 동작
 * 개인적으로 Video Processor 보다는 DirectX의 쉐이더 기능 쓰는것을 추천
+
+## 02 Media foundation SW Encoder
+* 윈도우에서 제공하는 Media foundation API를 이용한 nv12 to h264 예제
+* Video Processor와 달리 output type이 먼저 설정되어야함
+* 몇가지 동작(SW로 동작, h264코덱으로만 동작 등...)을 가정하고 구현했기에 상용제품이 사용시 좀더 예외처리가 필요함
