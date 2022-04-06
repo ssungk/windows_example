@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{C610AECE-AD9E-4C0F-A571-614A2F28DB6C}</ProjectGuid>
-    <RootNamespace>My02mediafoundationvideoprocessor</RootNamespace>
+    <ProjectGuid>{5EFD3019-FC38-4381-BBB5-BB2D413D60ED}</ProjectGuid>
+    <RootNamespace>My03mediadoundationswencoder</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,10 +139,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="VideoProcessor.cpp" />
+    <ClCompile Include="VideoEncoderSW.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="VideoProcessor.h" />
+    <ClInclude Include="VideoEncoderSW.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_desktop_duplication_api"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_media_foundation_video_processor", "02_media_foundation_video_processor\02_media_foundation_video_processor.vcxproj", "{C610AECE-AD9E-4C0F-A571-614A2F28DB6C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_media_doundation_sw_encoder", "03_media_doundation_sw_encoder\03_media_doundation_sw_encoder.vcxproj", "{5EFD3019-FC38-4381-BBB5-BB2D413D60ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{C610AECE-AD9E-4C0F-A571-614A2F28DB6C}.Release|x64.Build.0 = Release|x64
 		{C610AECE-AD9E-4C0F-A571-614A2F28DB6C}.Release|x86.ActiveCfg = Release|Win32
 		{C610AECE-AD9E-4C0F-A571-614A2F28DB6C}.Release|x86.Build.0 = Release|Win32
+		{5EFD3019-FC38-4381-BBB5-BB2D413D60ED}.Debug|x64.ActiveCfg = Debug|x64
+		{5EFD3019-FC38-4381-BBB5-BB2D413D60ED}.Debug|x64.Build.0 = Debug|x64
+		{5EFD3019-FC38-4381-BBB5-BB2D413D60ED}.Debug|x86.ActiveCfg = Debug|Win32
+		{5EFD3019-FC38-4381-BBB5-BB2D413D60ED}.Debug|x86.Build.0 = Debug|Win32
+		{5EFD3019-FC38-4381-BBB5-BB2D413D60ED}.Release|x64.ActiveCfg = Release|x64
+		{5EFD3019-FC38-4381-BBB5-BB2D413D60ED}.Release|x64.Build.0 = Release|x64
+		{5EFD3019-FC38-4381-BBB5-BB2D413D60ED}.Release|x86.ActiveCfg = Release|Win32
+		{5EFD3019-FC38-4381-BBB5-BB2D413D60ED}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
