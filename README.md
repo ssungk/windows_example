@@ -12,7 +12,7 @@ Compiler : visual studio 2017
 visual studio통해 실행시 바이너리가 sln파일 위치에 생성됩니다.
 
 ## Test
-Tool에 포함된 프로그램을 통해 결과를 확인할수있습니다
+Tool에 포함된 프로그램을 통해 결과를 확인할수있습니다  
 예제1의 결과물은 bgr이고 YUV Player는 rgb포맷만 지원하기 때문에  
 변질된 색으로 데이터만 가능하고 원본 그대로 재생은 불가능합니다.   
 1,2번 예제 : YUV Player를 통해 확인해주세요  
