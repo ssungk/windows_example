@@ -9,7 +9,7 @@ Compiler : visual studio 2017
 
 ## Build
 특별한 작업없이 visual studio를 이용해 빌드해주시면 됩니다.  
-visual studio통해 실행시 바이너리가 sln파일 위치에 생성됩니다.
+visual studio통해 실행시 결과 데이터가 sln파일 위치에 생성됩니다.
 
 ## Test
 Tool에 포함된 프로그램을 통해 결과를 확인할수있습니다  
