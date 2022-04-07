@@ -98,9 +98,20 @@ std::vector<uint8_t> VideoEncoderHW::Encode(std::vector<uint8_t> ibuffer)
 
   DWORD status = 0;
   MFT_OUTPUT_DATA_BUFFER output_data = { 0, nullptr, 0, nullptr };
+
+OUTPUT:
   hr = mft_->ProcessOutput(0, 1, &output_data, &status);
   if (FAILED(hr))
   {
+    if (hr == MF_E_TRANSFORM_STREAM_CHANGE)
+    {
+      setOutputType();
+
+      bool ret = promise_[1].get_future().get();
+      std::promise<bool> promise;
+      promise_[1] = std::move(promise);
+      goto OUTPUT;
+    }
     printf("mft->ProcessOutput failed");
     std::terminate();
   }

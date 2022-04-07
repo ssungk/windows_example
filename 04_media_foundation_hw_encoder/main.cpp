@@ -18,7 +18,7 @@ int main()
 
   for (int i = 0; i < FRAME_COUNT; i++)
   {
-    printf("[%003d] meida foundation SW Encode frame\n", i);
+    printf("[%003d] meida foundation HW Encode frame\n", i);
     fread(buf.data(), width * height * 3 / 2, 1, fr);
 
     auto buffer = enc.Encode(buf);

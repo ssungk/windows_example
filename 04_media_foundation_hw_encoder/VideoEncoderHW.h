@@ -7,6 +7,7 @@
 #include <atlbase.h>
 #include <mfapi.h>
 #include <mftransform.h>
+#include <mferror.h>
 #include <codecapi.h>
 #include <strmif.h>
 #include <d3d11.h>
