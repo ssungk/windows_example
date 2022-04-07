@@ -30,3 +30,9 @@ Tool에 포함된 YUV Player를 통해 RGB, YUV raw데이터를 확인해볼수�
 * 윈도우에서 제공하는 Media foundation API를 이용한 nv12 to h264 예제
 * Video Processor와 달리 output type이 먼저 설정되어야함
 * 몇가지 동작(SW로 동작, h264코덱으로만 동작 등...)을 가정하고 구현했기에 상용제품이 사용시 좀더 예외처리가 필요함
+
+## 04 Media foundation HW Encoder
+* 윈도우에서 제공하는 Media foundation API의 하드웨어 가속(그래픽카드)을 통한 nv12 to h264 예제
+* 하드웨어 인코더의 경우 무조건 asnyc로 동작
+* 예제에서는 async로 처리를 위한 멀티쓰레딩과 mutex사용을 자제하기위해 future promise를 통해 blocking동작으로 처리
+* 실제 제품에 동작하기위해서는 hw와 sw동작 둘다 고려 멀티쓰레딩 등 고려하고 예외처리 해야할 부분이 많음
