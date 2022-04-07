@@ -18,7 +18,7 @@ int main()
 
   for (int i = 0; i < FRAME_COUNT; i++)
   {
-    printf("[%d]\n", i);
+    printf("[%d]meida foundation video processor frame\n", i);
     fread(buf.data(), width * height * 4, 1, fr);
 
     auto buffer = vp.Process(buf);
