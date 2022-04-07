@@ -7,12 +7,16 @@ ssungk's winsows example repository
 OS: Windows 10  
 Compiler : visual studio 2017
 
-## Build & Test
+## Build
 특별한 작업없이 visual studio를 이용해 빌드해주시면 됩니다.  
-visual studio통해 실행시 바이너리가 sln파일 위치에 생성됩니다.   
-Tool에 포함된 YUV Player를 통해 RGB, YUV raw데이터를 확인해볼수있습니다.  
-단 예제1의 결과물은 bgr이고 YUV Player는 rgb포맷만 지원하기 때문에  
-데이터의 확인만 가능하고 원본그대로 재생은 불가능합니다.   
+visual studio통해 실행시 바이너리가 sln파일 위치에 생성됩니다.
+
+## Test
+Tool에 포함된 프로그램을 통해 결과를 확인할수있습니다
+예제1의 결과물은 bgr이고 YUV Player는 rgb포맷만 지원하기 때문에  
+변질된 색으로 데이터만 가능하고 원본 그대로 재생은 불가능합니다.   
+1~2 YUV Player를 통해 확인해주세요
+3~4 h264 분석기로 정상적인 데이터인지 확인 또는 팟플레이어와 같은 플레이어를 통해 재생해 확인 가능합니다.
 
 
 ## 01 Desktop Duplication API
