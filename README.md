@@ -1,6 +1,6 @@
 # Windows Example
 ssungk's winsows example repository  
-개인적으로 사용하거나 공부한 windows용 코드 기록용 git repository
+windows코드 기록용 git repository
 
 
 ## Development Environment
