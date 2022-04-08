@@ -41,6 +41,7 @@ x64
 *.yuv
 *.nv12
 *.h264
+*.size
 
 # Temp
 .vs

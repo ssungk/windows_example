@@ -10,9 +10,10 @@ int main()
 
   VideoEncoderSW enc(width, height);
 
-  FILE *fr, *fw;
+  FILE *fr, *fw, *fws;
   fopen_s(&fr, "../screen0.nv12", "rb");
   fopen_s(&fw, "../screen0.h264", "wb");
+  fopen_s(&fws, "../screen0.size", "wb");
 
   std::vector<uint8_t> buf(width * height * 3 / 2);
 
@@ -22,8 +23,10 @@ int main()
     fread(buf.data(), width * height * 3 / 2, 1, fr);
 
     auto buffer = enc.Encode(buf);
+    uint32_t size = static_cast<uint32_t>(buffer.size());
 
     fwrite(buffer.data(), buffer.size(), 1, fw);
+    fwrite(&size, sizeof(size), 1, fws);
   }
 
   return 0;

@@ -11,9 +11,9 @@ int main()
   VideoDecoderSW dec(width, height);
 
   FILE *fr, *frs, *fw;
-  fopen_s(&fr, "../screen0_sw.h264", "rb");
+  fopen_s(&fr, "../screen0.h264", "rb");
   fopen_s(&frs, "../screen0.size", "rb");
-  fopen_s(&fw, "../screen0_decode_sw.yuv420", "wb");
+  fopen_s(&fw, "../screen0_decode_sw.yuv", "wb");
 
   std::vector<uint8_t> buf(width * height * 3 / 2);
 
