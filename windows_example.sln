@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_media_foundation_sw_deco
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_media_foundation_hw_decoder", "06_media_foundation_hw_decoder\06_media_foundation_hw_decoder.vcxproj", "{DF4C3017-1CBB-45D3-A117-6EE124A8DF96}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07_directx_pixel_shader", "07_directx_pixel_shader\07_directx_pixel_shader.vcxproj", "{816106F9-F7A9-4AEE-9FC6-7B72223F95E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,14 @@ Global
 		{DF4C3017-1CBB-45D3-A117-6EE124A8DF96}.Release|x64.Build.0 = Release|x64
 		{DF4C3017-1CBB-45D3-A117-6EE124A8DF96}.Release|x86.ActiveCfg = Release|Win32
 		{DF4C3017-1CBB-45D3-A117-6EE124A8DF96}.Release|x86.Build.0 = Release|Win32
+		{816106F9-F7A9-4AEE-9FC6-7B72223F95E1}.Debug|x64.ActiveCfg = Debug|x64
+		{816106F9-F7A9-4AEE-9FC6-7B72223F95E1}.Debug|x64.Build.0 = Debug|x64
+		{816106F9-F7A9-4AEE-9FC6-7B72223F95E1}.Debug|x86.ActiveCfg = Debug|Win32
+		{816106F9-F7A9-4AEE-9FC6-7B72223F95E1}.Debug|x86.Build.0 = Debug|Win32
+		{816106F9-F7A9-4AEE-9FC6-7B72223F95E1}.Release|x64.ActiveCfg = Release|x64
+		{816106F9-F7A9-4AEE-9FC6-7B72223F95E1}.Release|x64.Build.0 = Release|x64
+		{816106F9-F7A9-4AEE-9FC6-7B72223F95E1}.Release|x86.ActiveCfg = Release|Win32
+		{816106F9-F7A9-4AEE-9FC6-7B72223F95E1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
