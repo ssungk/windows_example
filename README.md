@@ -51,3 +51,7 @@ Tool에 포함된 프로그램을 통해 결과를 확인할수있습니다
 * 5번 SW와 달리 하드웨어로 디코딩시 yuv420포맷으로 출력이 안되고 nv12만 가능한 경우가 많음(절대적인것은 아님)
 * 4번 HW인코더의 async가 강제됨과 달리 sync mft에 directx디바이스를 추가함으로써 하드웨어 가속이 됨
 
+## 07 DirectX Pixel Shader
+* DirectX를 이용한 yuv to rgb 예제
+* 작성중....
+
