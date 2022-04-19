@@ -1,6 +1,7 @@
 # Windows Example
 ssungk's winsows example repository  
-windows코드 기록용 git repository
+windows코드 기록용 git repository  
+예외처리나 구현이 완벽하지 않습니다.
 
 
 ## Development Environment
