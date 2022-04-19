@@ -11,12 +11,27 @@ class PixelShader
 public:
   PixelShader(int width, int height);
   virtual ~PixelShader();
+  std::vector<uint8_t> Convert(std::vector<uint8_t> buffer);
 
 private:
   void init();
 
 private:
   int width_, height_;
+
+  CComPtr<ID3D11Device> device_;
+  CComPtr<ID3D11DeviceContext> device_context_;
+  CComPtr<ID3D11RenderTargetView> render_target_view_;
+  CComPtr<ID3D11VertexShader> vertex_shader_;
+  CComPtr<ID3D11PixelShader> pixel_shader_;
+  CComPtr<ID3D11InputLayout> vertex_layout_;
+  CComPtr<ID3D11Buffer> vertex_buffer_;
+  CComPtr<ID3D11Buffer> index_buffer_;
+
+
+
+  CComPtr<ID3D11Texture2D> cpu_texture_;
+  CComPtr<ID3D11Texture2D> gpu_texture_;
 
 };
 #endif
