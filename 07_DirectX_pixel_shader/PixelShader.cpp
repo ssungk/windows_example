@@ -93,27 +93,25 @@ PixelShader::~PixelShader()
 
 std::vector<uint8_t> PixelShader::Convert(std::vector<uint8_t> buffer)
 {
-  //D3D11_MAPPED_SUBRESOURCE  mapped;
-  //HRESULT hr = device_context_->Map(cpu_texture_, 0, D3D11_MAP_READ, 0, &mapped);
-  //if (FAILED(hr))
-  //{
-  //  printf("context_->Map failed\n");
-  //  std::terminate();
-  //}
-  //
-  //memcpy(mapped.pData, buffer.data(), buffer.size());
-  //
-  //device_context_->Unmap(cpu_texture_, 0);
+  D3D11_MAPPED_SUBRESOURCE  mapped;
+  HRESULT hr = device_context_->Map(cpu_nv12_, 0, D3D11_MAP_READ, 0, &mapped);
+  if (FAILED(hr))
+  {
+    printf("context_->Map failed\n");
+    std::terminate();
+  }
+  
+  memcpy(mapped.pData, buffer.data(), buffer.size());
+  
+  device_context_->Unmap(cpu_nv12_, 0);
 
 
-
+  device_context_->CopyResource(gpu_nv12_, cpu_nv12_);
 
 
 
   CComPtr<ID3D11RenderTargetView> render_target_view_;
-
-
-  HRESULT hr = device_->CreateRenderTargetView(gpu_texture_.p, nullptr, &render_target_view_);
+  hr = device_->CreateRenderTargetView(gpu_bgrx_.p, nullptr, &render_target_view_);
   if (FAILED(hr))
   {
     printf("CreateRenderTargetView failed\n");
@@ -143,7 +141,7 @@ std::vector<uint8_t> PixelShader::Convert(std::vector<uint8_t> buffer)
   srv.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
   srv.Texture2D.MipLevels = 1;
 
-  hr = device_->CreateShaderResourceView(cpu_texture_.p, &srv, &shader_resource_view_);
+  hr = device_->CreateShaderResourceView(gpu_nv12_.p, &srv, &shader_resource_view_);
   if (FAILED(hr))
   {
     printf("CreateShaderResourceView failed\n");
@@ -153,7 +151,7 @@ std::vector<uint8_t> PixelShader::Convert(std::vector<uint8_t> buffer)
   srv.Format = DXGI_FORMAT_R8G8_UNORM;
 
   CComPtr<ID3D11ShaderResourceView> shader_resource_view_2 = nullptr;
-  hr = device_->CreateShaderResourceView(cpu_texture_.p, &srv, &shader_resource_view_2);
+  hr = device_->CreateShaderResourceView(gpu_nv12_.p, &srv, &shader_resource_view_2);
   if (FAILED(hr))
   {
     printf("CreateShaderResourceView failed\n");
@@ -169,17 +167,29 @@ std::vector<uint8_t> PixelShader::Convert(std::vector<uint8_t> buffer)
 
 
 
+  device_context_->CopyResource(cpu_bgrx_, gpu_bgrx_);
 
+  device_context_->DrawIndexed(6, 0, 0);
 
-
-
-
-
-
-
-
+  
+  hr = device_context_->Map(cpu_bgrx_, 0, D3D11_MAP_READ, 0, &mapped);
+  if (FAILED(hr))
+  {
+    printf("context_->Map failed\n");
+    std::terminate();
+  }
 
   std::vector<uint8_t> obuffer(width_ * height_ * 4);
+
+  memcpy(obuffer.data(), mapped.pData, obuffer.size());
+
+  device_context_->Unmap(cpu_bgrx_, 0);
+
+
+
+
+
+ 
   return obuffer;
 }
 
@@ -200,12 +210,37 @@ void PixelShader::init()
   texture_desc.Format = DXGI_FORMAT_NV12;
   texture_desc.SampleDesc.Count = 1;
   texture_desc.SampleDesc.Quality = 0;
-  texture_desc.Usage = D3D11_USAGE_DEFAULT;
-  texture_desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
-  texture_desc.CPUAccessFlags = 0;// D3D11_CPU_ACCESS_WRITE | D3D11_CPU_ACCESS_READ;
+  texture_desc.Usage = D3D11_USAGE_STAGING;
+  texture_desc.BindFlags = 0;
+  texture_desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE | D3D11_CPU_ACCESS_READ;
   texture_desc.MiscFlags = 0;
 
-  hr = device_->CreateTexture2D(&texture_desc, NULL, &cpu_texture_);
+  hr = device_->CreateTexture2D(&texture_desc, NULL, &cpu_nv12_);
+  if (FAILED(hr))
+  {
+    printf("CreateTexture2D failed\n");
+    std::terminate();
+  }
+
+  texture_desc.Format = DXGI_FORMAT_NV12;
+  texture_desc.Usage = D3D11_USAGE_DEFAULT;
+  texture_desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+  texture_desc.CPUAccessFlags = 0;
+
+  hr = device_->CreateTexture2D(&texture_desc, NULL, &gpu_nv12_);
+  if (FAILED(hr))
+  {
+    printf("CreateTexture2D failed\n");
+    std::terminate();
+  }
+
+
+  texture_desc.Format = DXGI_FORMAT_B8G8R8X8_UNORM;
+  texture_desc.Usage = D3D11_USAGE_DEFAULT;
+  texture_desc.BindFlags = D3D11_BIND_RENDER_TARGET;
+  texture_desc.CPUAccessFlags = 0;
+
+  hr = device_->CreateTexture2D(&texture_desc, NULL, &gpu_bgrx_);
   if (FAILED(hr))
   {
     printf("CreateTexture2D failed\n");
@@ -213,11 +248,11 @@ void PixelShader::init()
   }
 
   texture_desc.Format = DXGI_FORMAT_B8G8R8X8_UNORM;
-  texture_desc.Usage = D3D11_USAGE_DEFAULT;
-  texture_desc.BindFlags = D3D11_BIND_RENDER_TARGET;
-  texture_desc.CPUAccessFlags = 0;
+  texture_desc.Usage = D3D11_USAGE_STAGING;
+  texture_desc.BindFlags = 0;
+  texture_desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE | D3D11_CPU_ACCESS_READ;
 
-  hr = device_->CreateTexture2D(&texture_desc, NULL, &gpu_texture_);
+  hr = device_->CreateTexture2D(&texture_desc, NULL, &cpu_bgrx_);
   if (FAILED(hr))
   {
     printf("CreateTexture2D failed\n");

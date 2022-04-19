@@ -30,8 +30,10 @@ private:
 
 
 
-  CComPtr<ID3D11Texture2D> cpu_texture_;
-  CComPtr<ID3D11Texture2D> gpu_texture_;
+  CComPtr<ID3D11Texture2D> cpu_nv12_;
+  CComPtr<ID3D11Texture2D> gpu_nv12_;
+  CComPtr<ID3D11Texture2D> gpu_bgrx_;
+  CComPtr<ID3D11Texture2D> cpu_bgrx_;
 
 };
 #endif
